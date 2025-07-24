@@ -1,0 +1,200 @@
+[
+    {
+        "label": "fitz",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "fitz",
+        "description": "fitz",
+        "detail": "fitz",
+        "documentation": {}
+    },
+    {
+        "label": "clean_text",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_heading_level",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "keyword_score",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_persona_job",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "write_output",
+        "importPath": "utils",
+        "description": "utils",
+        "isExtraImport": true,
+        "detail": "utils",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "extract_outline",
+        "importPath": "extractor",
+        "description": "extractor",
+        "isExtraImport": true,
+        "detail": "extractor",
+        "documentation": {}
+    },
+    {
+        "label": "extract_text_by_page",
+        "importPath": "extractor",
+        "description": "extractor",
+        "isExtraImport": true,
+        "detail": "extractor",
+        "documentation": {}
+    },
+    {
+        "label": "os,",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os.",
+        "description": "os.",
+        "detail": "os.",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "rank_relevant_sections",
+        "importPath": "analyzer",
+        "description": "analyzer",
+        "isExtraImport": true,
+        "detail": "analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "extract_outline",
+        "kind": 2,
+        "importPath": "Challenge_1A.app.extractor",
+        "description": "Challenge_1A.app.extractor",
+        "peekOfCode": "def extract_outline(pdf_path):\n    doc = fitz.open(pdf_path)\n    outline = []\n    title = doc.metadata.get(\"title\", \"Untitled Document\")\n    for page_num, page in enumerate(doc, start=1):\n        blocks = page.get_text(\"dict\")[\"blocks\"]\n        for b in blocks:\n            if \"lines\" in b:\n                for l in b[\"lines\"]:\n                    for s in l[\"spans\"]:",
+        "detail": "Challenge_1A.app.extractor",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "Challenge_1A.app.main",
+        "description": "Challenge_1A.app.main",
+        "peekOfCode": "def main():\n    input_dir = \"/app/input\"\n    output_dir = \"/app/output\"\n    print(\"📁 Scanning input folder...\")\n    for filename in os.listdir(input_dir):\n        if filename.endswith(\".pdf\"):\n            print(f\"📄 Processing: {filename}\")\n            pdf_path = os.path.join(input_dir, filename)\n            result = extract_outline(pdf_path)\n            output_filename = filename.replace(\".pdf\", \".json\")",
+        "detail": "Challenge_1A.app.main",
+        "documentation": {}
+    },
+    {
+        "label": "clean_text",
+        "kind": 2,
+        "importPath": "Challenge_1A.app.utils",
+        "description": "Challenge_1A.app.utils",
+        "peekOfCode": "def clean_text(text):\n    \"\"\"\n    Cleans and normalizes text extracted from PDF spans.\n    Removes extra spaces, control characters, etc.\n    \"\"\"\n    return \" \".join(text.strip().split())\ndef get_heading_level(font_size):\n    \"\"\"\n    Maps font sizes to heading levels (H1, H2, H3) heuristically.\n    Adjust thresholds as needed for your PDFs.",
+        "detail": "Challenge_1A.app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_heading_level",
+        "kind": 2,
+        "importPath": "Challenge_1A.app.utils",
+        "description": "Challenge_1A.app.utils",
+        "peekOfCode": "def get_heading_level(font_size):\n    \"\"\"\n    Maps font sizes to heading levels (H1, H2, H3) heuristically.\n    Adjust thresholds as needed for your PDFs.\n    \"\"\"\n    if font_size >= 18:\n        return \"H1\"\n    elif font_size >= 14:\n        return \"H2\"\n    elif font_size >= 11:",
+        "detail": "Challenge_1A.app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "rank_relevant_sections",
+        "kind": 2,
+        "importPath": "Challenge_1B.app.analyzer",
+        "description": "Challenge_1B.app.analyzer",
+        "peekOfCode": "def rank_relevant_sections(all_docs, persona, job):\n    focus_keywords = persona.lower().split() + job.lower().split()\n    extracted = []\n    refined = []\n    rank = 1\n    for docname, pages in all_docs:\n        for i, page_text in enumerate(pages):\n            score = keyword_score(page_text, focus_keywords)\n            if score > 2:\n                lines = page_text.split('\\n')",
+        "detail": "Challenge_1B.app.analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "extract_text_by_page",
+        "kind": 2,
+        "importPath": "Challenge_1B.app.extractor",
+        "description": "Challenge_1B.app.extractor",
+        "peekOfCode": "def extract_text_by_page(pdf_path):\n    doc = fitz.open(pdf_path)\n    pages = []\n    for page in doc:\n        text = page.get_text()\n        pages.append(text)\n    return pages",
+        "detail": "Challenge_1B.app.extractor",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "Challenge_1B.app.main",
+        "description": "Challenge_1B.app.main",
+        "peekOfCode": "def main():\n    input_dir = \"/app/input\"\n    output_dir = \"/app/output\"\n    persona_file = os.path.join(input_dir, \"persona.json\")\n    persona, job = load_persona_job(persona_file)\n    documents = [f for f in os.listdir(input_dir) if f.endswith(\".pdf\")]\n    full_data = []\n    for doc in documents:\n        print(f\"📄 Reading {doc}\")\n        doc_path = os.path.join(input_dir, doc)",
+        "detail": "Challenge_1B.app.main",
+        "documentation": {}
+    },
+    {
+        "label": "load_persona_job",
+        "kind": 2,
+        "importPath": "Challenge_1B.app.utils",
+        "description": "Challenge_1B.app.utils",
+        "peekOfCode": "def load_persona_job(path):\n    with open(path, \"r\", encoding=\"utf-8\") as f:\n        data = json.load(f)\n    persona = data.get(\"persona\", {}).get(\"role\", \"\")\n    job = data.get(\"job\", \"\")\n    return persona, job\ndef write_output(obj, path):\n    with open(path, \"w\", encoding=\"utf-8\") as f:\n        json.dump(obj, f, indent=2)\ndef keyword_score(text, keywords):",
+        "detail": "Challenge_1B.app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "write_output",
+        "kind": 2,
+        "importPath": "Challenge_1B.app.utils",
+        "description": "Challenge_1B.app.utils",
+        "peekOfCode": "def write_output(obj, path):\n    with open(path, \"w\", encoding=\"utf-8\") as f:\n        json.dump(obj, f, indent=2)\ndef keyword_score(text, keywords):\n    count = 0\n    text = text.lower()\n    for word in keywords:\n        if word.lower() in text:\n            count += 1\n    return count",
+        "detail": "Challenge_1B.app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "keyword_score",
+        "kind": 2,
+        "importPath": "Challenge_1B.app.utils",
+        "description": "Challenge_1B.app.utils",
+        "peekOfCode": "def keyword_score(text, keywords):\n    count = 0\n    text = text.lower()\n    for word in keywords:\n        if word.lower() in text:\n            count += 1\n    return count",
+        "detail": "Challenge_1B.app.utils",
+        "documentation": {}
+    }
+]
