@@ -1,4 +1,3 @@
-# app/analyzer.py
 from utils import keyword_score
 
 def rank_relevant_sections(all_docs, persona, job):

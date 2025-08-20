@@ -1,0 +1,55 @@
+{
+  "title": "",
+  "outline": [
+    {
+      "level": "H3",
+      "text": "AI Job Screening Assistant Report",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "This document outlines how AI can help automate candidate screening.",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Section 1: Resume Filtering",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "The assistant can automatically parse resumes and identify key skills.",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Section 2: Interview Scheduling",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "It can coordinate interview slots between recruiters and candidates.",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Section 3: Candidate Ranking",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Based on job descriptions, candidates are scored and ranked using AI models.",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Section 4: Bias Reduction",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "The system helps ensure fair and unbiased evaluation by anonymizing resumes.",
+      "page": 1
+    }
+  ]
+}

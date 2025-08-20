@@ -1,4 +1,3 @@
-# extractor.py
 import fitz  # PyMuPDF
 from utils import clean_text, get_heading_level
 
@@ -16,7 +15,6 @@ def extract_outline(pdf_path):
                         text = clean_text(s["text"])
                         if not text:
                             continue
-
                         level = get_heading_level(round(s["size"]))
                         if level:
                             outline.append({
@@ -25,3 +23,8 @@ def extract_outline(pdf_path):
                                 "page": page_num
                             })
     return {"title": title, "outline": outline}
+
+def extract_text_by_page(pdf_path):
+    doc = fitz.open(pdf_path)
+    pages = [page.get_text() for page in doc]
+    return pages
