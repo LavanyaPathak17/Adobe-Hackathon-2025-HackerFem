@@ -5,8 +5,8 @@ from analyzer import rank_relevant_sections
 from utils import load_persona_job, write_output
 
 def main():
-    input_dir = "/app/input"
-    output_dir = "/app/output"
+    input_dir = "sample/input"
+    output_dir = "sample/output"
 
     os.makedirs(output_dir, exist_ok=True)
 
